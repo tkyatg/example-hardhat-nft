@@ -1,11 +1,11 @@
 const Web3 = require("web3");
+require("dotenv").config();
 
 // ADDRESS, KEY and URL are examples.
-const CONTRACT_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
-const PUBLIC_KEY = "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266";
-const PRIVATE_KEY =
-  "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
-const PROVIDER_URL = "http://localhost:8545";
+const CONTRACT_ADDRESS = process.env.CONTRACT_ADDRESS;
+const PUBLIC_KEY = process.env.PUBLIC_KEY;
+const PRIVATE_KEY = process.env.PRIVATE_KEY;
+const PROVIDER_URL = process.env.PROVIDER_URL;
 
 async function mintNFT() {
   const web3 = new Web3(PROVIDER_URL);
