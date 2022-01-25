@@ -9,7 +9,7 @@ const PROVIDER_URL = process.env.PROVIDER_URL;
 
 async function mintNFT() {
   const web3 = new Web3(PROVIDER_URL);
-  const contract = require("../artifacts/contracts/MYNFT.sol/MYNFT.json");
+  const contract = require("../artifacts/contracts/Nft.sol/Nft.json");
   const nftContract = new web3.eth.Contract(contract.abi, CONTRACT_ADDRESS);
   const nonce = await web3.eth.getTransactionCount(PUBLIC_KEY, "latest");
   const tx = {
@@ -19,7 +19,6 @@ async function mintNFT() {
     gas: 500000,
     data: nftContract.methods.mint(PUBLIC_KEY).encodeABI(),
   };
-
   const signPromise = web3.eth.accounts.signTransaction(tx, PRIVATE_KEY);
   signPromise
     .then((signedTx) => {

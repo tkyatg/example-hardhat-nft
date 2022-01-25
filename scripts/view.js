@@ -8,7 +8,7 @@ const PROVIDER_URL = process.env.PROVIDER_URL;
 
 async function viewNFT() {
   const web3 = new Web3(PROVIDER_URL);
-  const contract = require("../artifacts/contracts/MYNFT.sol/MYNFT.json");
+  const contract = require("../artifacts/contracts/Nft.sol/Nft.json");
   const nftContract = new web3.eth.Contract(contract.abi, CONTRACT_ADDRESS);
   nftContract.methods.balanceOf(PUBLIC_KEY).call().then(console.log);
 }
